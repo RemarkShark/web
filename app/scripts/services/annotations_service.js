@@ -20,16 +20,14 @@ angular.module('annotatewithmeApp')
       return ngPouch.db.put(decorateAnnotationObj(annotation), rfc4122.v4());
     };
 
-    this.all = function (callback) {
+    this.all = function () {
       var allAnnotations = function (doc, emit) {
         if (doc.doc_type === Constants.document_type_annotation) {
           emit(doc.created_at, doc._id);
         }
       };
 
-      ngPouch.db.query(allAnnotations, {descending: false, include_docs: true}, function (err, response) {
-        callback(response.rows);
-      });
+      return ngPouch.db.query(allAnnotations, {descending: false, include_docs: true});
     };
 
     this.update = function (annotation) {
