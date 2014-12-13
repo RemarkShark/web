@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-7">
+    <img style="width:100%" ng-src="{{session.imgSrc}}" annotorious>
+  </div>
+  <div class="col-md-5">
+    <div id="session-id-container">
+      <span class="info-label text-muted">Your Unique Session Id (<span class="small_font">share with your friends to collaborate</span>) </span><br/>
+      <span class="session-id" ng-bind="session.uniq_hash"></span>
+    </div>
+
+    <h3 class="text-muted">Comments</h3>
+
+    <div ng-show="annotations.length == 0"><== Click and drag on the image to annotate</div>
+    <ol id="comments">
+      <li ng-repeat="item in annotations" ng-mouseenter="addHighlight(item)" ng-mouseleave="removeHighlight()"
+          class="pointer">{{item.text}}
+      </li>
+    </ol>
+  </div>
+</div>
