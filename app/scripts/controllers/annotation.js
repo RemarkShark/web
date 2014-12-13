@@ -54,15 +54,14 @@ angular.module('annotatewithmeApp')
       
 
       anno.addHandler('onAnnotationCreated', function (annotation) {
-        AnnotationsService.createAnnotation(annotation).then(function (response) {
-          console.log(response);
+        AnnotationsService.create(annotation).then(function (response) {
           $scope.annotations.push(annotation);
           applyPhase();
         });
       });
 
       anno.addHandler('onAnnotationRemoved', function (annotation) {
-        AnnotationsService.flagDeletedAnnotation(annotation["id"]);
+        AnnotationsService.remove(annotation);
         $scope.annotations.splice($scope.annotations.indexOf(annotation), 1);
         applyPhase();
       });
@@ -74,7 +73,7 @@ angular.module('annotatewithmeApp')
           delete dup_item["text"];
           delete dup_annotation["text"];
           if (JSON.stringify(dup_item) == JSON.stringify(dup_annotation)) {
-            AnnotationsService.updateAnnotation(item["id"], annotation);
+            AnnotationsService.update(annotation);
             return false;
           }
           return true;

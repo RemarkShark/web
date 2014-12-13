@@ -12,7 +12,7 @@
 
     <div ng-show="annotations.length == 0"><== Click and drag on the image to annotate</div>
     <ol id="comments">
-      <li ng-repeat="item in annotations" ng-mouseenter="addHighlight(item)" ng-mouseleave="removeHighlight()"
+      <li ng-repeat="item in annotations track by $index" ng-mouseenter="addHighlight(item)" ng-mouseleave="removeHighlight()"
           class="pointer">{{item.text}}
       </li>
     </ol>
