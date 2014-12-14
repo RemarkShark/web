@@ -32,19 +32,14 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/annotate.html',
       controller: 'AnnotationCtrl',
       resolve: {
-        session: function ($q, $route, Session) {
+        foundSession: function ($q, $route, Session) {
           var deferred = $q.defer();
           var sessionId = $route.current.params.sessionId;
-          var foundCached = sessionStorage.getItem(sessionId);
-          if (foundCached) {
-            deferred.resolve(JSON.parse(foundCached));
-          } else {
-            Session.fetch(sessionId).then(function (foundSession) {
-              $('head').append('<link rel="prefetch" href="' + foundSession.data["img_src"] + '">');
-              sessionStorage.setItem(foundSession.data.uniq_hash, JSON.stringify(foundSession.data));
-              deferred.resolve(foundSession.data);
-            });
-          }
+          Session.fetch(sessionId).then(function (foundSession) {
+            $('head').append('<link rel="prefetch" href="' + foundSession.data["image_url"] + '">');
+            deferred.resolve(foundSession.data);
+          });
+
           return deferred.promise;
         }
       }})

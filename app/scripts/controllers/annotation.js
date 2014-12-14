@@ -8,13 +8,10 @@
  * Controller of the annotatewithmeApp
  */
 angular.module('annotatewithmeApp')
-  .controller('AnnotationCtrl', ["$scope", "AnnotationsService", "$routeParams", "$q", "ngPouch", function ($scope, AnnotationsService, $routeParams, $q, ngPouch) {
+  .controller('AnnotationCtrl', function ($scope, AnnotationsService, $routeParams, $q, ngPouch, foundSession) {
 
+    $scope.session = foundSession;
     anno.destroy();
-
-    $scope.session = JSON.parse(sessionStorage.getItem($routeParams.sessionId));
-
-    $scope.session.imgSrc = $scope.session["img_src"];
 
     $scope.annotations = [];
 
@@ -99,4 +96,4 @@ angular.module('annotatewithmeApp')
 
       applyPhase();
     });
-  }]);
+  });

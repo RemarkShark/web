@@ -11,10 +11,10 @@ angular.module('annotatewithmeApp')
     .controller('MainCtrl', function ($scope, $location, $timeout, Session) {
 
       var openSession = function (session) {
-        $('head').append('<link rel="prefetch" href="'+ session["img_src"] + '">');
-        sessionStorage.setItem(session.uniq_hash, JSON.stringify(session));
+        $('head').append('<link rel="prefetch" href="'+ session["image_url"] + '">');
+        sessionStorage.setItem(session.id, JSON.stringify(session));
         $timeout(function () {
-          $location.path("/sessions/" + session.uniq_hash);
+          $location.path("/sessions/" + session.id);
         });
       }
 
