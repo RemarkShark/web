@@ -8,9 +8,9 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/annotorious-js/css/annotorious.css" />
-  <link rel="stylesheet" href="bower_components/annotorious-js/css/theme-dark/annotorious-dark.css" />
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/annotorious-js/css/annotorious.css"/>
+  <link rel="stylesheet" href="bower_components/annotorious-js/css/theme-dark/annotorious-dark.css"/>
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -23,22 +23,20 @@
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
-  <![endif]-->
+<![endif]-->
 
-  <!-- Add your site or application content here -->
-  <div class="container-fluid">
-    <div class="header">
-      <h1 class="text-muted"><a id="heading-color" ng-href="#">Annotate with Me</a></h1>
-    </div>
-
-    <div ng-view=""></div>
-
-    <div class="footer">
-      <p>For Rails Rumble with <span class="glyphicon glyphicon-heart"></span></p>
-    </div>
+<!-- Add your site or application content here -->
+<div class="container-fluid">
+  <div class="header">
+    <h1 class="text-muted"><a id="heading-color" ng-href="#">Annotate with Me</a></h1>
   </div>
 
-  <!-- build:js(.) scripts/oldieshim.js -->
+  <div ng-view=""></div>
+</div>
+<div class="footer">
+  <p><span class="glyphicon glyphicon-copyright-mark"></span> Annotatewithme</p>
+</div>
+<!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.js"></script>
@@ -98,5 +96,5 @@
 <script src="scripts/services/session_service.js"></script>
 <!-- endbuild -->
 
- </body>
- </html>
+</body>
+</html>
