@@ -17,6 +17,9 @@ angular.module('annotatewithmeApp')
     };
 
     return {
+      destroy: function(){
+        Storage.replication.stop();
+      },
       create: function (imageUrl) {
         var deferred = $q.defer();
         $http.post(Config.base_url + "/api/sessions", {"image_url": imageUrl}).then(function (res) {

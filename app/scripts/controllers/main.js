@@ -8,29 +8,30 @@
  * Controller of the annotatewithmeApp
  */
 angular.module('annotatewithmeApp')
-    .controller('MainCtrl', function ($scope, $location, $timeout, Session) {
+  .controller('MainCtrl', function ($scope, $location, $timeout, Session) {
+    Session.destroy();
 
-      var openSession = function (session) {
-        $('head').append('<link rel="prefetch" href="'+ session["image_url"] + '">');
-        sessionStorage.setItem(session.id, JSON.stringify(session));
-        $timeout(function () {
-          $location.path("/sessions/" + session.id);
+    var openSession = function (session) {
+      $('head').append('<link rel="prefetch" href="' + session["image_url"] + '">');
+      sessionStorage.setItem(session.id, JSON.stringify(session));
+      $timeout(function () {
+        $location.path("/sessions/" + session.id);
+      });
+    }
+
+    $scope.newSession = function (imageUrl) {
+      if (imageUrl && imageUrl.trim().length > 0) {
+        Session.create(imageUrl).then(function (createdSession) {
+          openSession(createdSession.data)
         });
       }
+    };
 
-      $scope.newSession = function (imageUrl) {
-        if (imageUrl && imageUrl.trim().length > 0) {
-          Session.create(imageUrl).then(function (createdSession) {
-            openSession(createdSession.data)
-          });
-        }
-      };
-
-      $scope.joinSession = function (sessionId) {
-        if (sessionId) {
-          Session.fetch(sessionId).then(function (foundSession) {
-            openSession(foundSession.data)
-          });
-        }
-      };
-    });
+    $scope.joinSession = function (sessionId) {
+      if (sessionId) {
+        Session.fetch(sessionId).then(function (foundSession) {
+          openSession(foundSession.data)
+        });
+      }
+    };
+  });
