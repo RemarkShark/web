@@ -17,7 +17,7 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'angular-loading-bar',
-    'app.ngPouch',
+    'pouchdb',
     'ngStorage',
     'uuid'
   ]);

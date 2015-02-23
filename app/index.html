@@ -8,9 +8,9 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/annotorious-js/css/annotorious.css"/>
-  <link rel="stylesheet" href="bower_components/annotorious-js/css/theme-dark/annotorious-dark.css"/>
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+  <link rel="stylesheet" href="bower_components/annotorious-js/css/annotorious.css" />
+  <link rel="stylesheet" href="bower_components/annotorious-js/css/theme-dark/annotorious-dark.css" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -43,12 +43,6 @@
 <![endif]-->
 <!-- endbuild -->
 
-<!-- build:js scripts/lawnchair.js -->
-<script src="../bower_components/lawnchair/src/Lawnchair.js"></script>
-<script src="../bower_components/lawnchair/src/plugins/query.js"></script>
-<script src="../bower_components/lawnchair/src/adapters/indexed-db.js"></script>
-<!-- endbuild -->
-
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -74,12 +68,11 @@
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/annotorious-js/annotorious.min.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-<script src="bower_components/pouchdb/dist/pouchdb.js"></script>
-<script src="bower_components/ngStorage/ngStorage.js"></script>
-<script src="bower_components/angular-uuid-service/uuid-svc.js"></script>
-<script src="bower_components/ng-pouch/ngPouch.js"></script>
 <script src="bower_components/ngstorage/ngStorage.js"></script>
 <script src="bower_components/pouchdb-authentication/dist/pouchdb.authentication.js"></script>
+<script src="bower_components/pouchdb/dist/pouchdb.js"></script>
+<script src="bower_components/angular-pouchdb/dist/angular-pouchdb.js"></script>
+<script src="bower_components/angular-uuid-service/uuid-svc.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -90,10 +83,10 @@
 <script src="scripts/controllers/annotation.js"></script>
 <script src="scripts/directives/annotorious.js"></script>
 <script src="scripts/services/annotations_service.js"></script>
-<script src="scripts/services/lawnchair_factory.js"></script>
 <script src="scripts/services/utilities.js"></script>
-<script src="scripts/services/constants.js"></script>
 <script src="scripts/services/session_service.js"></script>
+<script src="scripts/services/storage.js"></script>
+<script src="config.js"></script>
 <!-- endbuild -->
 
 </body>

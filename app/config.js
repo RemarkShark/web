@@ -8,9 +8,9 @@
  * Service in the annotatewithmeApp.
  */
 angular.module('annotatewithmeApp')
-  .constant('Constants',{
-  	'base_url': "http://localhost:3000/api/v1/",//"http://boiling-spire-5369.herokuapp.com/api/v1/",
-  	'annotations_db': "annotations",
+  .constant('Config',{
+    'base_url': "http://localhost:8080",
+    'annotations_db': "annotations",
     "document_type_annotation": "a",
     "couchdb_url": "http://localhost:5984/"
   });

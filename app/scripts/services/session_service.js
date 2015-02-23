@@ -8,24 +8,18 @@
  * Service in the annotatewithmeApp.
  */
 angular.module('annotatewithmeApp')
-  .service('Session', function SessionService($http, $q, ngPouch, Constants) {
-    var BASE_URL = "http://localhost:8080";
+  .service('Session', function SessionService($http, $q, Storage, Config) {
     var onNewSession = function (id) {
-      ngPouch.saveSettings({database: Constants.couchdb_url + id,
-        stayConnected: true });
+      if (id) {
+        Storage.replication.stop(); // To stop any replication if currently running...
+        Storage.init(id);
+      }
     };
 
-    var operation = function (type) {
-      if (type == 'get') {
-
-      } else if (type == 'post') {
-
-      }
-    }
     return {
       create: function (imageUrl) {
         var deferred = $q.defer();
-        $http.post(BASE_URL + "/api/sessions", {"image_url": imageUrl}).then(function (res) {
+        $http.post(Config.base_url + "/api/sessions", {"image_url": imageUrl}).then(function (res) {
           onNewSession(res.data.id);
           deferred.resolve(res);
         });
@@ -33,8 +27,8 @@ angular.module('annotatewithmeApp')
       },
       fetch: function (id) {
         var deferred = $q.defer();
-        $http.get(BASE_URL + "/api/sessions/" + id).then(function (res) {
-          onNewSession(res.data.id);
+        $http.get(Config.base_url + "/api/sessions/" + id).then(function (res) {
+          onNewSession(id);
           deferred.resolve(res);
         });
         return deferred.promise;

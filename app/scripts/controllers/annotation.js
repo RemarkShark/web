@@ -8,7 +8,7 @@
  * Controller of the annotatewithmeApp
  */
 angular.module('annotatewithmeApp')
-  .controller('AnnotationCtrl', function ($scope, AnnotationsService, $routeParams, $q, ngPouch, foundSession) {
+  .controller('AnnotationCtrl', function ($scope, AnnotationsService, $routeParams, $q, Storage, foundSession) {
 
     $scope.session = foundSession;
     anno.destroy();
@@ -40,20 +40,20 @@ angular.module('annotatewithmeApp')
     $scope.removeHighlight = function () {
       anno.highlightAnnotation();
     };
-
-    ngPouch.publish(function () {
-      var p1 = AnnotationsService.all()
-        .then(function (results) {
-          getAnnotationCallback(results.rows);
-        });
 //
-//      var p2 = PouchConflict.all()
+//    Storage.replication.start(function () {
+//      var p1 = AnnotationsService.all()
 //        .then(function (results) {
-//        $scope.conflicts = results;
-//
-//      });
-      return $q.all([p1 /*, p2*/]);
-    });
+//          getAnnotationCallback(results.rows);
+//        });
+////
+////      var p2 = PouchConflict.all()
+////        .then(function (results) {
+////        $scope.conflicts = results;
+////
+////      });
+//      return $q.all([p1 /*, p2*/]);
+//    });
 
     $scope.$on("annotorious-ready", function () {
       AnnotationsService.all().then(function(response){
