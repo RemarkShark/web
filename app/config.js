@@ -9,8 +9,8 @@
  */
 angular.module('annotatewithmeApp')
   .constant('Config',{
-    'base_url': "http://localhost:8080",
+    'base_url': "https://remarkshark.herokuapp.com",
     'annotations_db': "annotations",
     "document_type_annotation": "a",
-    "couchdb_url": "http://localhost:5984/"
+    "couchdb_url": "https://guest:guest@couchdb-c88579.smileupps.com/"
   });

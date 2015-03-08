@@ -10,7 +10,7 @@
 
     <h3>Comments</h3>
 
-    <div ng-show="annotations.length == 0"><== Click and drag on the image to annotate</div>
+    <div ng-show="annotations.length == 0">Click and drag on the image to annotate</div>
     <ol id="comments">
       <li ng-repeat="item in annotations" ng-click="addHighlight(item)"
           class="pointer">{{item.text}}
