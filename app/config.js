@@ -12,5 +12,5 @@ angular.module('annotatewithmeApp')
     'base_url': "https://remarkshark.herokuapp.com",
     'annotations_db': "annotations",
     "document_type_annotation": "a",
-    "couchdb_url": "https://guest:guest@couchdb-c88579.smileupps.com/"
+    "couchdb_url": "https://guest:guest@couchdb-f7362a.smileupps.com/"
   });
